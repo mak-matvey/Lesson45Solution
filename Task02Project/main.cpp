@@ -18,10 +18,11 @@ int main()
 	random_init(pointer, size, 0, 15);
 	cout << "Array: " << convert(pointer, size) << endl;
 
-	cout << "Is there local min in array? " <<
-		(is_there_local_min(pointer, size) ? "Yes" : "No") << endl;
-	cout << "Is there local max in array? " <<
-		(is_there_local_max(pointer, size) ? "Yes" : "No") << endl;
+	int count = count_local_min(pointer, size);
+	int* indices = get_local_min_indices(pointer, size, &count);
+
+	cout << "Indices of local mins: " << 
+		*indices << endl;
 
 	delete[] pointer;
 
